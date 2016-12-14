@@ -1,6 +1,6 @@
 
 #include<stdio.h>
- 
+
 
 struct date
 {
@@ -9,7 +9,7 @@ struct date
 
 const int monthdays[12] = {31, 28, 31, 30, 31, 30,
                            31, 31, 30, 31, 30, 31};
- 
+
 
 int count(struct date d)
 {
@@ -20,13 +20,13 @@ int count(struct date d)
 }
 int diff(struct date dt1,struct date dt2)
 {
-    
+    int i;
     long int n1 = dt1.y*365 + dt1.d;
-    for (int i=0; i<dt1.m - 1; i++)
+    for (i=0; i<dt1.m - 1; i++)
         n1 += monthdays[i];
     n1 += count(dt1);
     long int n2 = dt2.y*365 + dt2.d;
-    for (int i=0; i<dt2.m - 1; i++)
+    for (i=0; i<dt2.m - 1; i++)
         n2 += monthdays[i];
     n2 += count(dt2);
     return (n2 - n1);
@@ -46,6 +46,6 @@ int main()
     date2.m=m2;
     date2.y=y2;
     printf("\nDifference between two dates is %d days\n",diff(date1, date2));
- 
+
     return 0;
 }

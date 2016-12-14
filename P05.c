@@ -4,9 +4,9 @@
 int main()
 {char s[100];char w[100];
 int i,j,l,l2,flag=0,count=0;
-	printf("enter your String\n");
+	printf("\nEnter your String  ");
 	gets(s);
-	printf("enter your substring to search\n");
+	printf("\nEnter your substring to search  ");
 	gets(w);
 	l=strlen(s);
 	l2=strlen(w);
@@ -32,6 +32,6 @@ int i,j,l,l2,flag=0,count=0;
 		}
 	}
 	printf("\nsubstring was found %d times",count);
-	
+
 	return 0;
 }
