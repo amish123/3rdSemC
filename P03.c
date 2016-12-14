@@ -1,54 +1,43 @@
-#include<math.h>
 #include<stdio.h>
+
+
+char str[1000];
 int main()
-{int i,j,k,l,m;
-printf("termination character is 9\n");
-	char a[100][100];
-	for(i=0;i<100;i++)
-	{
-		gets(a[i]);
-		if(a[i][0]=='9')
-		break;
-	}
-   for(j=0;j<i;j++)
-   {if(a[j][0]==NULL)
-   continue;
-   l=strlen(a[j]);
-   for(k=0;k<l;k++)
-   { 
-   if(a[j][k]==' ')
-   {
-    printf("%c",a[j][k]);
-   	for(m=k+1;m<l;m++)
-   	{
-   	if(a[j][m]==' ')
-   	continue;
-   	else
-   	{printf("%c",a[j][m]);
-   	k=m;
-   		break;
-	}
+{
+    printf("ENTER THE STRING :");
+    gets(str);
+    int i=0,spaces=0,tab=0,line=0,vowels=0,words=0;
+    while(str[i]!='\0')
+    {
+        if(str[i]==' ')
+            spaces++;
+        else if(str[i]=='\t')
+            tab++;
+        else if(str[i]=='\n')
+            line++;
+        else if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'||str[i]=='A'||str[i]=='E'||str[i]=='I'||str[i]=='O'||str[i]=='U')
+            vowels++;
+         if((i-1>=0)&&(str[i]==' '||str[i]=='\t')&&(str[i-1]!=' '&&str[i-1]!='\t'))
+            words++;
+        i++;
     }
-   }
-  else if(a[j][k]=='\t')
-   {
-   	printf(" ");
-   	for(m=k+1;m<l;m++)
-   	{
-   	if(a[j][m]=='\t')
-   	continue;
-   	else
-   	{printf("%c",a[j][m]);
-   	k=m;
-   		break;
-	}
+    printf("\nWords: %d",words+1);
+    printf("\nSpaces: %d",spaces);
+    printf("\nTabs: %d",tab);
+    printf("\nVowels: %d",vowels);
+    printf("\nFinal String : ");
+    i=0;
+     while(str[i]!='\0')
+    {
+    if(str[i]==' '||str[i]=='\t')
+    {
+        while(str[i]!='\0'&&(str[i]==' '||str[i]=='\t'))
+            i++;
+            printf(" ");
     }
-   }
-   else
-   printf("%c",a[j][k]);
-}
-printf("\n");
-}
-   
-   return 0;
+    printf("%c",str[i]);
+
+    i++;
+    }
+return 0;
 }
